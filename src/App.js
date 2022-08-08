@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { GeneralProvider } from "./context/GeneralContext";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import ViewUsers from './pages/ViewUsers';
+import DeleteUser from './pages/DeleteUser';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GeneralProvider>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/users' element={<ViewUsers />} />
+        <Route path='/users/delete' element={<DeleteUser />} />
+      </Routes>
+    </BrowserRouter>
+    </GeneralProvider >
   );
 }
 
