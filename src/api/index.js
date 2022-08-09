@@ -19,7 +19,9 @@ export const getUsers = async () => {
 
 export const createUser = async (name) => {
     try {
-        const resp = await axios.post(generateURL('users'), {name});
+        const resp = await axios.post(generateURL('users'), {
+            name: name
+        });
         return resp.data;
     } catch(e) {
         return false;
